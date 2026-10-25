@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: campusflow-live-api
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: 22
+      - key: NODE_ENV
+        value: production
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: TEACHER_ACCESS_KEY
+        sync: false
+      - key: APP_ORIGIN
+        sync: false
+      - key: STORAGE_BUCKET
+        value: assignments
