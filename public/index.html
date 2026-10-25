@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f5f5f7">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="CampusFlow">
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="/styles.css">
+  <title>CampusFlow LIVE — Teacher</title>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar"><a class="brand" href="/"> <span class="brand-mark">C</span><span>CampusFlow <small>LIVE</small></span></a><span class="status-pill"><i></i> Session workspace</span></header>
+    <section class="hero">
+      <p class="eyebrow">VERDEN CAMPUS · TEACHER VIEW</p>
+      <h1>Make the lesson<br><span>move forward.</span></h1>
+      <p class="intro">Open a live session, share one assignment, and collect student work in one place.</p>
+    </section>
+    <section class="panel setup-panel">
+      <div class="panel-heading"><div><p class="eyebrow">LIVE SESSION</p><h2>Your classroom, ready.</h2></div><span class="live-dot"></span></div>
+      <label for="teacher-key">Teacher access key</label>
+      <input id="teacher-key" type="password" autocomplete="current-password" placeholder="Enter your private access key">
+      <button id="open-session" class="primary">Open a session <span aria-hidden="true">↗</span></button>
+      <p class="hint">A new 4-digit PIN is generated for every session. Keep your teacher key private.</p>
+      <p id="teacher-message" class="message" role="status"></p>
+    </section>
+    <section id="session-panel" class="panel session-panel hidden">
+      <div class="panel-heading"><div><p class="eyebrow">STUDENTS JOIN WITH THIS PIN</p><h2>Session is open</h2></div><span class="badge-active">ACTIVE</span></div>
+      <div id="session-pin" class="pin-display">----</div>
+      <p id="session-expiry" class="hint center"></p>
+      <div class="upload-row"><div><h3>Assignment</h3><p id="assignment-state" class="hint">No assignment uploaded yet.</p></div><label class="secondary file-button">Choose file<input id="assignment-file" type="file" accept=".pdf,.png,.jpg,.jpeg,application/pdf,image/png,image/jpeg" hidden></label></div>
+      <button id="upload-assignment" class="primary" disabled>Upload assignment</button>
+      <div class="section-divider"></div>
+      <div class="panel-heading"><div><p class="eyebrow">INCOMING WORK</p><h2>Submissions</h2></div><button id="refresh-submissions" class="icon-button" aria-label="Refresh submissions">↻</button></div>
+      <div id="submissions" class="submissions"><p class="empty">Submissions will appear here, ordered by time.</p></div>
+      <button id="close-session" class="secondary full-width">Close session</button>
+    </section>
+    <footer><span>CampusFlow LIVE</span><a href="/student.html">Student sign-in →</a></footer>
+  </main>
+  <script src="/app.js" defer></script>
+</body>
+</html>
