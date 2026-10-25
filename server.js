@@ -28,8 +28,11 @@ app.use(helmet({ crossOriginResourcePolicy: { policy: 'same-site' } }));
 app.use(cors({
   origin(origin, callback) {
     const allowed = process.env.APP_ORIGIN;
-    if (!origin || !allowed || origin === allowed) return callback(null, true);
-    return callback(new Error('Origin not allowed'));
+    // Same-origin requests do not need CORS headers. Cross-origin access is
+    // enabled only when APP_ORIGIN is explicitly configured.
+    if (!origin) return callback(null, true);
+    if (allowed && origin === allowed) return callback(null, true);
+    return callback(null, false);
   }
 }));
 app.use(express.json({ limit: '100kb' }));
